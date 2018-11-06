@@ -1,0 +1,30 @@
+{
+    "name": "apex-js-lib-template-js",
+    "version": "1.0.0-alpha.1",
+    "description": "Default JavaScript template for the create-apex-js-lib project",
+    "main": "index.js",
+    "scripts": {},
+    "bin": {
+        "apex-js-lib-template-js": "./index.js"
+    },
+    "keywords": [
+        "oracle",
+        "apex",
+        "javascript",
+        "library"
+    ],
+    "dependencies": {},
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dfrechdev/apex-js-lib-template"
+    },
+    "bugs": {
+        "url": "https://github.com/dfrechdev/create-apex-js-lib/issues"
+    },
+    "author": {
+        "name": "Daniel Frech",
+        "email": "dfrechdev@gmail.com"
+    },
+    "license": "MIT"
+}
