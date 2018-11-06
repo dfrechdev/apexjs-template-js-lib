@@ -17,10 +17,10 @@
     "devDependencies": {},
     "repository": {
         "type": "git",
-        "url": "https://github.com/dfrechdev/apex-js-lib-template"
+        "url": "https://github.com/dfrechdev/apex-js-lib-template-js"
     },
     "bugs": {
-        "url": "https://github.com/dfrechdev/create-apex-js-lib/issues"
+        "url": "https://github.com/dfrechdev/apex-js-lib-template-js/issues"
     },
     "author": {
         "name": "Daniel Frech",
