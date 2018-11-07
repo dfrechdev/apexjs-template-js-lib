@@ -1,4 +1,4 @@
-export function setupLibrary(library) {
+module.exports = function setupLibrary(library) {
     logger.logInfo('Please answer the following questions:');
     return inquirer.prompt(this.questions).then((answers) => {
         logger.log('Thanks\n');
