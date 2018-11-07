@@ -1,17 +1,22 @@
-#! /usr/bin/env node
-const Library = require('./src/library.js');
-const exececutionDirectory = __dirname;
-const currentDirectory = process.cwd();
-const templateName = 'javascript-starter';
+export function setupLibrary(library) {
+    logger.logInfo('Please answer the following questions:');
+    return inquirer.prompt(this.questions).then((answers) => {
+        logger.log('Thanks\n');
+        return new Promise((resolve, reject) => {
+            library.code = answers['library-code'];
+            library.version = answers['initial-version'];
 
-// clear the console
-process.stdout.write('\033c');
+            writePackageDetailsSync(library);
+            resolve('done');
+        });
+    });
+}
 
-// create library object
-let library = new Library(exececutionDirectory, currentDirectory, templateName);
-
-// parse the arguments
-library.parseProgram();
-
-// start asking qestions and creating the libary
-library.create();
+function writeLibrayDetails(library) {
+    const packageJsonPath = `${library.getLibraryPath()}/package.json`;
+    let packageJSON = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+    packageJSON.name = library.name;
+    packageJSON.version = library.version;
+    packageJSON.libraryCode = library.code;
+    fs.writeFileSync(`${library.getLibraryPath()}/package.json`, JSON.stringify(packageJSON, null, 4));
+}
