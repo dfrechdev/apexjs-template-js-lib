@@ -5,7 +5,7 @@ module.exports = { setupLibrary };
 
 function setupLibrary(library, logger) {
     logger.logInfo('Please answer the following questions:');
-    return inquirer.prompt(getQuestions).then((answers) => {
+    return inquirer.prompt(getQuestions()).then((answers) => {
         logger.log('Thanks\n');
         return new Promise((resolve, reject) => {
             library.code = answers['library-code'];
