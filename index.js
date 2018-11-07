@@ -1,8 +1,9 @@
+const semverRegex = require('semver-regex');
 const inquirer = require('inquirer');
 
 module.exports = { setupLibrary };
 
-function setupLibrary(library, inquirer, logger) {
+function setupLibrary(library, logger) {
     logger.logInfo('Please answer the following questions:');
     return inquirer.prompt(getQuestions).then((answers) => {
         logger.log('Thanks\n');
