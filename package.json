@@ -13,7 +13,9 @@
         "javascript",
         "library"
     ],
-    "dependencies": {},
+    "dependencies": {
+        "inquirer": "^6.2.0"
+    },
     "devDependencies": {},
     "repository": {
         "type": "git",
