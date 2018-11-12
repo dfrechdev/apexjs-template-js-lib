@@ -5,13 +5,13 @@ module.exports = { setupLibrary };
 
 function setupLibrary(library, logger) {
     logger.logInfo('Please answer the following questions:');
-    return inquirer.prompt(getQuestions()).then((answers) => {
+    return inquirer.prompt(getQuestions(library)).then((answers) => {
         logger.log('Thanks\n');
         return new Promise((resolve, reject) => {
             library.code = answers['library-code'];
             library.version = answers['initial-version'];
 
-            writePackageDetailsSync(library);
+            writeLibrayDetails(library);
             resolve('done');
         });
     });
@@ -26,12 +26,12 @@ function writeLibrayDetails(library) {
     fs.writeFileSync(`${library.getLibraryPath()}/package.json`, JSON.stringify(packageJSON, null, 4));
 }
 
-function getQuestions() {
+function getQuestions(library) {
     return [
         {
             name: 'library-code',
             type: 'input',
-            default: this.name,
+            default: library.name,
             message: 'Library code:',
             validate: function(input) {
                 if (/^([A-Za-z\-\_\d])+$/.test(input)) return true;
