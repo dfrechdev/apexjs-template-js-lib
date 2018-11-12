@@ -1,3 +1,4 @@
+const fs = require('fs');
 const semverRegex = require('semver-regex');
 const inquirer = require('inquirer');
 
