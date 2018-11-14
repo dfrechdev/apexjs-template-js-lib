@@ -1,4 +1,4 @@
-# apex-js-lib-template-js
+# apexjs-template-js-lib
 
 Default JavaScript template for the create-apex-js-lib project.
 
