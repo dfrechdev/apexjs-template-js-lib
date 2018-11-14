@@ -40,6 +40,13 @@ function getQuestions(library) {
             }
         },
         {
+            name: 'output-format',
+            type: 'list',
+            message: 'Output format:',
+            default: 'iife',
+            choices: ['amd', 'cjs', 'esm', 'iife', 'umd']
+        },
+        {
             name: 'initial-version',
             type: 'input',
             message: 'Initial version:',
