@@ -1,7 +1,7 @@
 {
     "name": "apexjs-template-js-lib",
     "version": "0.0.1",
-    "description": "Default JavaScript template for the create-apex-js-lib project",
+    "description": "Default JavaScript template for the create-apex-js-app project",
     "main": "index.js",
     "scripts": {},
     "bin": {
