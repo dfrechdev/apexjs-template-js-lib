@@ -12,7 +12,7 @@ function setupApp(appName) {
             try {
                 const libDetails = {
                     name: appName,
-                    appPath: path.resolve(process.cwd(), appName),
+                    appPath: path.resolve(__dirname, appName),
                     code: answers['library-code'],
                     version: answers['initial-version']
                 };
