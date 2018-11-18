@@ -27,12 +27,12 @@ function setupApp(appDetails) {
 }
 
 function writeLibDetails(libDetails) {
-    const packageJsonPath = `${libDetails.appPath}/package.json`;
+    const packageJsonPath = path.resolve(libDetails.appPath, 'package.json');
     let packageJSON = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
     packageJSON.name = libDetails.name;
     packageJSON.version = libDetails.version;
     packageJSON.libraryCode = libDetails.code;
-    fs.writeFileSync(`${libDetails.appPath}/package.json`, JSON.stringify(packageJSON, null, 4));
+    fs.writeFileSync(path.resolve(libDetails.appPath, 'package.json'), JSON.stringify(packageJSON, null, 4));
 }
 
 function getQuestions(appDetails) {
