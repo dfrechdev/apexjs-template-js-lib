@@ -8,18 +8,18 @@ function setupApp(appName, appPath) {
     console.log('Please answer the following questions:');
     return inquirer.prompt(getQuestions(appName)).then((answers) => {
         return new Promise((resolve, reject) => {
-            try{
+            try {
                 const libDetails = {
-                    name = appName,
-                    appPath = appPath,
-                    code = answers['library-code'],
-                    version = answers['initial-version']
+                    name: appName,
+                    appPath: appPath,
+                    code: answers['library-code'],
+                    version: answers['initial-version']
                 };
                 writeLibDetails(libDetails);
                 resolve('done');
-            } catch(err){
+            } catch (err) {
                 reject(err);
-            };
+            }
         });
     });
 }
