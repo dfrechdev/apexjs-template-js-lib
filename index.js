@@ -1,17 +1,18 @@
 const fs = require('fs');
+const path = require('path');
 const semverRegex = require('semver-regex');
 const inquirer = require('inquirer');
 
 module.exports = { setupApp };
 
-function setupApp(appName, appPath) {
+function setupApp(appName) {
     console.log('Please answer the following questions:');
     return inquirer.prompt(getQuestions(appName)).then((answers) => {
         return new Promise((resolve, reject) => {
             try {
                 const libDetails = {
                     name: appName,
-                    appPath: appPath,
+                    appPath: path.resolve(process.cwd(), appName),
                     code: answers['library-code'],
                     version: answers['initial-version']
                 };
