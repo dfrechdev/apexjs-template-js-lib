@@ -16,6 +16,7 @@ function setupApp(appDetails) {
                     code: answers['library-code'],
                     version: answers['initial-version']
                 };
+                console.log(JSON.stringify(libDetails));
                 writeLibDetails(libDetails);
                 resolve('done');
             } catch (err) {
