@@ -11,7 +11,7 @@ function setupApp(appDetails) {
         return new Promise((resolve, reject) => {
             try {
                 const libDetails = {
-                    name: appDetails.appName,
+                    appName: appDetails.appName,
                     appPath: appDetails.appPath,
                     code: answers['library-code'],
                     version: answers['initial-version']
@@ -27,11 +27,14 @@ function setupApp(appDetails) {
 }
 
 function writeLibDetails(libDetails) {
+    console.log('reading package.json from ' + path.resolve(libDetails.appPath, 'package.json'));
     const packageJsonPath = path.resolve(libDetails.appPath, 'package.json');
     let packageJSON = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
-    packageJSON.name = libDetails.name;
+    console.log('setting attributes');
+    packageJSON.name = libDetails.appName;
     packageJSON.version = libDetails.version;
     packageJSON.libraryCode = libDetails.code;
+    console.log('writing package.json');
     fs.writeFileSync(path.resolve(libDetails.appPath, 'package.json'), JSON.stringify(packageJSON, null, 4));
 }
 
