@@ -2,7 +2,7 @@ const fs = require('fs');
 const semverRegex = require('semver-regex');
 const inquirer = require('inquirer');
 
-module.exports = { setupLibrary };
+module.exports = { setupApp };
 
 function setupApp(appName, appPath) {
     console.log('Please answer the following questions:');
