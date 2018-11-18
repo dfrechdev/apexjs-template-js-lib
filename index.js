@@ -36,6 +36,7 @@ function writeLibDetails(libDetails) {
     packageJSON.libraryCode = libDetails.code;
     console.log('writing package.json');
     fs.writeFileSync(path.resolve(libDetails.appPath, 'package.json'), JSON.stringify(packageJSON, null, 4));
+    console.log('done');
 }
 
 function getQuestions(appDetails) {
