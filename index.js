@@ -14,7 +14,7 @@ function setupApp(appName, appPath) {
                 code = answers['library-code'],
                 version = answers['initial-version']
             };
-            writeLibDetails(app);
+            writeLibDetails(libDetails);
             resolve('done');
         });
     });
