@@ -3,8 +3,19 @@ const path = require('path');
 const semverRegex = require('semver-regex');
 const inquirer = require('inquirer');
 
+/**
+ * @exports setupApp
+ */
 module.exports = { setupApp };
 
+/**
+ * @function setupApp
+ * @param appDetails
+ * @param {string} appDetails.appName
+ * @param {string} appDetails.appPath
+ * @returns {PromiseLike}
+ * @description Entry point for creating a new app with the template
+ */
 function setupApp(appDetails) {
     console.log('Please answer the following questions:');
     return inquirer.prompt(getQuestions(appDetails)).then((answers) => {
@@ -25,6 +36,9 @@ function setupApp(appDetails) {
     });
 }
 
+/**
+ * @private
+ */
 function writeLibDetails(libDetails) {
     const packageJsonPath = path.resolve(libDetails.appPath, 'package.json');
     let packageJSON = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
@@ -34,6 +48,9 @@ function writeLibDetails(libDetails) {
     fs.writeFileSync(path.resolve(libDetails.appPath, 'package.json'), JSON.stringify(packageJSON, null, 4));
 }
 
+/**
+ * @private
+ */
 function getQuestions(appDetails) {
     return [
         {
