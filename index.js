@@ -17,7 +17,6 @@ function setupApp(appDetails) {
                     version: answers['initial-version']
                 };
                 writeLibDetails(libDetails);
-                console.log('done setup');
                 resolve('done');
             } catch (err) {
                 reject(err);
@@ -27,16 +26,12 @@ function setupApp(appDetails) {
 }
 
 function writeLibDetails(libDetails) {
-    console.log('reading package.json from ' + path.resolve(libDetails.appPath, 'package.json'));
     const packageJsonPath = path.resolve(libDetails.appPath, 'package.json');
     let packageJSON = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
-    console.log('setting attributes');
     packageJSON.name = libDetails.appName;
     packageJSON.version = libDetails.version;
     packageJSON.libraryCode = libDetails.code;
-    console.log('writing package.json');
     fs.writeFileSync(path.resolve(libDetails.appPath, 'package.json'), JSON.stringify(packageJSON, null, 4));
-    console.log('done');
 }
 
 function getQuestions(appDetails) {
