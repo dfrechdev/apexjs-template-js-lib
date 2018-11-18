@@ -8,25 +8,29 @@ function setupApp(appName, appPath) {
     console.log('Please answer the following questions:');
     return inquirer.prompt(getQuestions(appName)).then((answers) => {
         return new Promise((resolve, reject) => {
-            const libDetails = {
-                name = appName,
-                path = appPath,
-                code = answers['library-code'],
-                version = answers['initial-version']
+            try{
+                const libDetails = {
+                    name = appName,
+                    appPath = appPath,
+                    code = answers['library-code'],
+                    version = answers['initial-version']
+                };
+                writeLibDetails(libDetails);
+                resolve('done');
+            } catch(err){
+                reject(err);
             };
-            writeLibDetails(libDetails);
-            resolve('done');
         });
     });
 }
 
 function writeLibDetails(libDetails) {
-    const packageJsonPath = `${libDetails.path}/package.json`;
+    const packageJsonPath = `${libDetails.appPath}/package.json`;
     let packageJSON = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
     packageJSON.name = libDetails.name;
     packageJSON.version = libDetails.version;
     packageJSON.libraryCode = libDetails.code;
-    fs.writeFileSync(`${libDetails.path}/package.json`, JSON.stringify(packageJSON, null, 4));
+    fs.writeFileSync(`${libDetails.appPath}/package.json`, JSON.stringify(packageJSON, null, 4));
 }
 
 function getQuestions(appName) {
@@ -36,7 +40,7 @@ function getQuestions(appName) {
             type: 'input',
             default: appName,
             message: 'Library code:',
-            validate: function(input) {
+            validate: (input) => {
                 if (/^([A-Za-z\-\_\d])+$/.test(input)) return true;
                 else return 'The library code may only include letters, numbers, underscores and hashes.';
             }
@@ -53,7 +57,7 @@ function getQuestions(appName) {
             type: 'input',
             message: 'Initial version:',
             default: '1.0.0',
-            validate: function(input) {
+            validate: (input) => {
                 if (semverRegex().test(input)) return true;
                 else return 'The initial version must match a semantic versions such as 0.0.1';
             }
