@@ -5,14 +5,14 @@ const inquirer = require('inquirer');
 
 module.exports = { setupApp };
 
-function setupApp(appName) {
+function setupApp(appDetails) {
     console.log('Please answer the following questions:');
-    return inquirer.prompt(getQuestions(appName)).then((answers) => {
+    return inquirer.prompt(getQuestions(appDetails)).then((answers) => {
         return new Promise((resolve, reject) => {
             try {
                 const libDetails = {
-                    name: appName,
-                    appPath: path.resolve(__dirname, appName),
+                    name: appDetails.appName,
+                    appPath: appDetails.appPath,
                     code: answers['library-code'],
                     version: answers['initial-version']
                 };
@@ -34,12 +34,12 @@ function writeLibDetails(libDetails) {
     fs.writeFileSync(`${libDetails.appPath}/package.json`, JSON.stringify(packageJSON, null, 4));
 }
 
-function getQuestions(appName) {
+function getQuestions(appDetails) {
     return [
         {
             name: 'library-code',
             type: 'input',
-            default: appName,
+            default: appDetails.appName,
             message: 'Library code:',
             validate: (input) => {
                 if (/^([A-Za-z\-\_\d])+$/.test(input)) return true;
