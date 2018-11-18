@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {},
     "bin": {
-        "apex-js-lib-template-js": "./index.js"
+        "apexjs-template-js-lib": "./index.js"
     },
     "keywords": [
         "oracle",
