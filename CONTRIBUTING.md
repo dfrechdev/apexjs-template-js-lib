@@ -53,4 +53,4 @@ Contributions are more than welcome!
 
 Thanks!
 
-[1]: https://github.com/dfrechdev/create-apex-js-app/issues
+[1]: https://github.com/dfrechdev/apexjs-template-js-lib/issues
