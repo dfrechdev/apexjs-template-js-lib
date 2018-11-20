@@ -58,7 +58,7 @@ function logWelcomeMsg(appDetails) {
     console.log('Bundles the app for production and creates the documentation.\n');
     console.log('We suggest that you begin by typing:\n');
     console.log(chalk.cyan('$ cd'), appDetails.appName);
-    console.log(chalk.cyan('$ npm run dev'));
+    console.log(chalk.cyan('$ npm run bundle-dev'));
 }
 
 /**
