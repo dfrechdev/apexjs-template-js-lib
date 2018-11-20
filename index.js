@@ -7,7 +7,7 @@ const inquirer = require('inquirer');
 /**
  * @exports setupApp
  */
-module.exports = { setupApp };
+module.exports = { setupApp, logWelcomeMsg };
 
 /**
  * @function setupApp
