@@ -7,16 +7,16 @@ import autoprefixer from 'autoprefixer';
 import replace from 'rollup-plugin-replace';
 import { uglify } from 'rollup-plugin-uglify';
 import { eslint } from 'rollup-plugin-eslint';
-import pkg from './package.json';
+import pkgJson from './package.json';
 
 export default [
     {
-        input: pkg.inputFile,
+        input: pkgJson.inputFile,
         output: {
-            name: pkg.libraryCode,
-            dir: `${pkg.directories.dist}`,
-            file: `${pkg.name}-${pkg.version}.min.js`,
-            format: pkg.outputFormat,
+            name: pkgJson.libraryCode,
+            dir: 'dist',
+            file: `${pkg.name}.bundle.${process.env.BUILD === 'production' ? 'min' : ''}.js`,   
+            format: pkgJson.outputFormat,
             sourcemap: process.env.BUILD === 'production' ? false : 'inline',
             globals: {
                 apex: 'apex',
@@ -33,8 +33,10 @@ export default [
             }),
             postcss({
                 extensions: ['.css', '.less'],
-                plugins: [autoprefixer(), cssnano()],
-                extract: `./${pkg.directories.dist}/${pkg.name}-${pkg.version}.min.css`,
+                process.env.BUILD === 'production' ? [autoprefixer(), cssnano()] : [],
+                extract: `./${pkg.directories.dist}/${pkg.name}.${
+                    process.env.BUILD === 'production' ? 'min' : ''
+                }.css`,
             }),
             resolve({
                 jsnext: true,
@@ -56,7 +58,7 @@ export default [
                 exclude: 'node_modules/**',
                 babelrc: true,
             }),
-            uglify(),
+            process.env.BUILD === 'production' ? uglify() : null,
         ],
     },
 ];
