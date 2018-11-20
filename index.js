@@ -50,7 +50,7 @@ function logWelcomeMsg(appDetails) {
     console.log('Bundles your library for production.\n');
     console.log(chalk.cyan('$ npm run bundle-dev'));
     console.log('Bundles your library for development.\n');
-    console.log(chalk.cyan('$ npm run bundle-watch'), 'and ', chalk.cyan('$ npm run bundle-dev-watch'));
+    console.log(chalk.cyan('$ npm run bundle-watch'), '/', chalk.cyan('$ npm run bundle-dev-watch'));
     console.log('Same as the above, but watches for changes of our files and bundles after each change.\n');
     console.log(chalk.cyan('$ npm run doc'));
     console.log('Creates JSDoc documentation from your source files.\n');
@@ -58,8 +58,7 @@ function logWelcomeMsg(appDetails) {
     console.log('Bundles the app for production and creates the documentation.\n');
     console.log('We suggest that you begin by typing:\n');
     console.log(chalk.cyan('$ cd'), appDetails.appName);
-    console.log(chalk.cyan('$ npm run dev\n'));
-    console.log(chalk.green('Happy coding!'));
+    console.log(chalk.cyan('$ npm run dev'));
 }
 
 /**
