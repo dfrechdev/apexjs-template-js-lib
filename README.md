@@ -45,7 +45,7 @@ npm run bundle
 
 This will bundled your JavaScript code and CSS files for production. This includes transpilation, polyfilling, static code checking, as well as minifying and shortening (uglifying) of your code. By default, no source maps are created for your transformed code.
 
-### Development build
+### Create development bundle
 
 ```bash
 npm run bundle-dev
@@ -53,14 +53,14 @@ npm run bundle-dev
 
 This will create bundle your Javascript code and CSS files as above, but without minifying and uglifying. But, for development source maps are added inline of your JS file.
 
-### Watch option
+### Bundle on every change
 
 ```bash
 npm run bundle-watch
 npm run bundle-dev-watch
 ```
 
-Exactly the same as above, but it will keep watching your source directory for changes and rebundle your code on every change.
+The same as above, but it will keep watching your source directory for changes and rebundle your code on every change.
 
 ### Create documentation
 
