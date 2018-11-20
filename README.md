@@ -1,7 +1,9 @@
 # apexjs-template-js-lib
 
-[![npm](https://img.shields.io/npm/v/apexjs-template-js-lib.svg?style=flat-square)](https://www.npmjs.com/package/apexjs-template-js-lib) 
-[![David](https://img.shields.io/david/dfrechdev/apexjs-template-js-lib.svg?style=flat-square)](https://github.com/dfrechdev/apexjs-template-js-lib/blob/master/package.json) 
+[![npm](https://img.shields.io/npm/v/apexjs-template-js-lib.svg?style=flat-square)](https://www.npmjs.com/package/apexjs-template-js-lib)
+
+[![David](https://img.shields.io/david/dfrechdev/apexjs-template-js-lib.svg?style=flat-square)](https://github.com/dfrechdev/apexjs-template-js-lib/blob/master/package.json)
+
 [![NpmLicense](https://img.shields.io/npm/l/apexjs-template-js-lib.svg?style=flat-square)](https://github.com/dfrechdev/apexjs-template-js-lib/blob/master/LICENSE)
 
 This is the default JavaScript template for the create-apex-js-lib project and is used to bootstrap a project that creates a JavaScript library for use in Apex. By using a standardized way to build your JavaScript code for APEX, your source code is transformed during the build process in the following ways:
@@ -35,21 +37,30 @@ The generated library contains a `src` folder with a file called `main.js`. This
 
 The build process transforms your code and stores the result in the `dist` folder of your library.To start the build process, issue one of the following commands from the root of your library:
 
+### Create production bundle
+
+```bash
+npm run bundle
+```
+
+This will bundled your JavaScript code and CSS files for production. This includes transpilation, polyfilling, static code checking, as well as minifying and shortening (uglifying) of your code. By default, no source maps are created for your transformed code.
+
 ### Development build
 
 ```bash
-npm run dev
+npm run bundle-dev
 ```
 
-This will create the bundled JavaScript and CSS files with your transformed source code. Further it will watch the source folder for changes and will bundle the library whenever a change occurs.
+This will create bundle your Javascript code and CSS files as above, but without minifying and uglifying. But, for development source maps are added inline of your JS file.
 
-### Production build
+### Watch option
 
 ```bash
-npm run prod
+npm run bundle-watch
+npm run bundle-dev-watch
 ```
 
-This will create JSDoc documentation and the bundled JavaScript and CSS files, but without source maps. With the `build` command, only the build is run and no watcher for further changes is started.
+Exactly the same as above, but it will keep watching your source directory for changes and rebundle your code on every change.
 
 ### Create documentation
 

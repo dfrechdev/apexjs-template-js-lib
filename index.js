@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const chalk = require('chalk');
 const semverRegex = require('semver-regex');
 const inquirer = require('inquirer');
 
@@ -34,6 +35,31 @@ function setupApp(appDetails) {
             }
         });
     });
+}
+
+/**
+ * @function logWelcomeMsg
+ * @param appDetails
+ * @param {string} appDetails.appName
+ * @param {string} appDetails.appPath
+ * @description Prints a welcome message for the template to the console
+ */
+function logWelcomeMsg(appDetails) {
+    console.log('Inside your app directory you can run the following commands:\n');
+    console.log(chalk.cyan('$ npm run bundle'));
+    console.log('Bundles your library for production.\n');
+    console.log(chalk.cyan('$ npm run bundle-dev'));
+    console.log('Bundles your library for development.\n');
+    console.log(chalk.cyan('$ npm run bundle-watch'), 'and ', chalk.cyan('$ npm run bundle-dev-watch'));
+    console.log('Same as the above, but watches for changes of our files and bundles after each change.\n');
+    console.log(chalk.cyan('$ npm run doc'));
+    console.log('Creates JSDoc documentation from your source files.\n');
+    console.log(chalk.cyan('npm run build'));
+    console.log('Bundles the app for production and creates the documentation.\n');
+    console.log('We suggest that you begin by typing:\n');
+    console.log(chalk.cyan('$ cd'), appDetails.appName);
+    console.log(chalk.cyan('$ npm run dev\n'));
+    console.log(chalk.green('Happy coding!'));
 }
 
 /**
