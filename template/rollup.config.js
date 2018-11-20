@@ -15,7 +15,7 @@ export default [
         output: {
             name: pkgJson.libraryCode,
             dir: 'dist',
-            file: `${pkgJson.name}-${pkgJson.version}.min.js`,
+            file: `${pkg.name}.bundle.${process.env.BUILD === 'production' ? 'min' : ''}.js`,   
             format: pkgJson.outputFormat,
             sourcemap: process.env.BUILD === 'production' ? false : 'inline',
             globals: {
@@ -33,8 +33,10 @@ export default [
             }),
             postcss({
                 extensions: ['.css', '.less'],
-                plugins: [autoprefixer(), cssnano()],
-                extract: `./dist/${pkgJson.name}-${pkgJson.version}.min.css`,
+                process.env.BUILD === 'production' ? [autoprefixer(), cssnano()] : [],
+                extract: `./${pkg.directories.dist}/${pkg.name}.${
+                    process.env.BUILD === 'production' ? 'min' : ''
+                }.css`,
             }),
             resolve({
                 jsnext: true,
