@@ -56,7 +56,7 @@ export default [
                 exclude: 'node_modules/**',
                 babelrc: true,
             }),
-            uglify(),
+            process.env.BUILD === 'production' ? uglify() : null,
         ],
     },
 ];
