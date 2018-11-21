@@ -13,12 +13,12 @@
         "javascript",
         "library"
     ],
-    "dependencies": {},
-    "devDependencies": {
+    "dependencies": {
         "chalk": "^2.4.1",
         "inquirer": "^6.2.0",
-        "semver-regex": "^2.0.0"
+        "semver-regex": "^2.0.0"    
     },
+    "devDependencies": {},
     "repository": {
         "type": "git",
         "url": "https://github.com/dfrechdev/apexjs-template-js-lib"
