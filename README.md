@@ -6,7 +6,7 @@
 
 [![NpmLicense](https://img.shields.io/npm/l/apexjs-template-js-lib.svg?style=flat-square)](https://github.com/dfrechdev/apexjs-template-js-lib/blob/master/LICENSE)
 
-This is the default JavaScript template for the [create-apex-js-app] project and is used to bootstrap a project that creates a JavaScript library for use in Oracle Apex. By using a standardized way to build your JavaScript code for APEX, your source code is transformed during the build process in the following ways:
+This is the default JavaScript template for the [create-apex-js-app][mainproject] project and is used to bootstrap a project that creates a JavaScript library for use in Oracle Apex. By using a standardized way to build your JavaScript code for APEX, your source code is transformed during the build process in the following ways:
 
 -   all JavaScript code is bundled into one file
 -   all JavaScript code is transpiled to ES5 syntax
