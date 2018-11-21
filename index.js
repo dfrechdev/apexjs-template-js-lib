@@ -20,16 +20,16 @@ module.exports = { setupApp, logWelcomeMsg };
  */
 function setupApp(appDetails) {
     console.log('Please answer the following questions:');
-    if(appDetails.suppressInquiry){
+    if (appDetails.suppressInquiry) {
         const libDetails = {
             appName: appDetails.appName,
             appPath: appDetails.appPath,
             code: appDetails.appName,
             version: '1.0.0'
         };
-        writeLibDetails(libDetails); 
-        return Promise.reslove('done');
-    } else{
+        writeLibDetails(libDetails);
+        return Promise.resolve('done');
+    } else {
         return inquirer.prompt(getQuestions(appDetails)).then((answers) => {
             return new Promise((resolve, reject) => {
                 try {
