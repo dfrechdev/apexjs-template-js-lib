@@ -14,27 +14,39 @@ module.exports = { setupApp, logWelcomeMsg };
  * @param appDetails
  * @param {string} appDetails.appName
  * @param {string} appDetails.appPath
+ * @param {boolean} appDetails.suppressInquiry
  * @returns {PromiseLike}
  * @description Entry point for creating a new app with the template
  */
 function setupApp(appDetails) {
     console.log('Please answer the following questions:');
-    return inquirer.prompt(getQuestions(appDetails)).then((answers) => {
-        return new Promise((resolve, reject) => {
-            try {
-                const libDetails = {
-                    appName: appDetails.appName,
-                    appPath: appDetails.appPath,
-                    code: answers['library-code'],
-                    version: answers['initial-version']
-                };
-                writeLibDetails(libDetails);
-                resolve('done');
-            } catch (err) {
-                reject(err);
-            }
+    if(appDetails.suppressInquiry){
+        const libDetails = {
+            appName: appDetails.appName,
+            appPath: appDetails.appPath,
+            code: appDetails.appName,
+            version: '1.0.0'
+        };
+        writeLibDetails(libDetails); 
+        return Promise.reslove('done');
+    } else{
+        return inquirer.prompt(getQuestions(appDetails)).then((answers) => {
+            return new Promise((resolve, reject) => {
+                try {
+                    const libDetails = {
+                        appName: appDetails.appName,
+                        appPath: appDetails.appPath,
+                        code: answers['library-code'],
+                        version: answers['initial-version']
+                    };
+                    writeLibDetails(libDetails);
+                    resolve('done');
+                } catch (err) {
+                    reject(err);
+                }
+            });
         });
-    });
+    }
 }
 
 /**
