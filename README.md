@@ -6,7 +6,7 @@
 
 [![NpmLicense](https://img.shields.io/npm/l/apexjs-template-js-lib.svg?style=flat-square)](https://github.com/dfrechdev/apexjs-template-js-lib/blob/master/LICENSE)
 
-This is the default JavaScript template for the create-apex-js-lib project and is used to bootstrap a project that creates a JavaScript library for use in Apex. By using a standardized way to build your JavaScript code for APEX, your source code is transformed during the build process in the following ways:
+This is the default JavaScript template for the [create-apex-js-app] project and is used to bootstrap a project that creates a JavaScript library for use in Oracle Apex. By using a standardized way to build your JavaScript code for APEX, your source code is transformed during the build process in the following ways:
 
 -   all JavaScript code is bundled into one file
 -   all JavaScript code is transpiled to ES5 syntax
@@ -25,7 +25,7 @@ All default settings can be easily changed according to your needs, after you ha
 
 -   **Library code**: This will be the code that is exposed on your APEX page and contains all of your source code. As with the library name, the library code may only include letters, numbers, underscores and hashes. By default, your library name is used for the library code as well.
 
--   **Initial version**: Define the initial version of your library. The version needs to follow the [semantic versioning][semver] rules. By default, version 1.0.0 is us1d.
+-   **Initial version**: Define the initial version of your library. The version needs to follow the [semantic versioning][semver] rules. The default is version 1.0.0.
 
 -   **output format**: The output format defines the module you want to create. By default, the library is created as an IIFE (Immediately Invoked Function Execution), which is s good fit for browsers. If you want to use your library in other modules/libraries however, you might want to choose another format.
 
@@ -120,3 +120,4 @@ Daniel Frech, 2018
 
 [contributing]: /CONTRIBUTING.md
 [semver]: https://semver.org/
+[mainproject]: https://github.com/dfrechdev/create-apex-js-app
