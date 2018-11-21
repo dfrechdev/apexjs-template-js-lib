@@ -19,7 +19,6 @@ module.exports = { setupApp, logWelcomeMsg };
  * @description Entry point for creating a new app with the template
  */
 function setupApp(appDetails) {
-    console.log('Please answer the following questions:');
     if (appDetails.suppressInquiry) {
         const libDetails = {
             appName: appDetails.appName,
@@ -30,6 +29,7 @@ function setupApp(appDetails) {
         writeLibDetails(libDetails);
         return Promise.resolve('done');
     } else {
+        console.log('Please answer the following questions:');
         return inquirer.prompt(getQuestions(appDetails)).then((answers) => {
             return new Promise((resolve, reject) => {
                 try {
