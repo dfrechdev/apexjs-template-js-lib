@@ -17,6 +17,16 @@ The result of the build process is a JavaScript bundle file, that contains the t
 
 All default settings can be easily changed according to your needs, after you have created your app.
 
+## How to use this template
+
+To create your JavaScript app for APEX, run the following command in your shell with the app name replaced (the app name may only include letters, numbers, underscores and hashes):
+
+```bash
+npx create-apex-js-app <app-name>
+```
+
+Please check the documentation of the package [create-apex-js-app][mainproject] for more details. This template is the default template for the generator package, therefore it does not need to be specified during the creation.
+
 ## Questions during the creation of your library
 
 -   **Library code**: This will be the code that is exposed on your APEX page and contains all of your source code. As with the library name, the library code may only include letters, numbers, underscores and hashes. By default, your library name is used for the library code as well.
