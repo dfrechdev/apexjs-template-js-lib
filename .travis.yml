@@ -1,0 +1,9 @@
+language: node_js
+dist: xenial
+node_js:
+    - 'lts/*'
+branches:
+    only:
+        - master
+script:
+    - npx create-apex-js-app testApp -s -p -t git+https://git@https://github.com/dfrechdev/apexjs-template-js-lib.git
