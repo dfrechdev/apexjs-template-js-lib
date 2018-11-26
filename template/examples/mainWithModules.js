@@ -1,6 +1,4 @@
-import apex from 'apex';
-import module1 from './js/module1';
-import module2 from './js/module2';
+import sampleModule1 from './js/sampleModule1';
 
 // export an object of modules
-export { module1, module2 };
+export { sampleModule1 };

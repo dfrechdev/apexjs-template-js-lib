@@ -1,17 +1,20 @@
 {
+    "parserOptions": {
+        "ecmaVersion": 10,
+        "sourceType": "module"
+    },
     "env": {
         "browser": true,
         "es6": true,
         "node": true
     },
     "extends": "eslint:recommended",
-    "parserOptions": {
-        "sourceType": "module"
-    },
     "globals": {
         "apex": false
     },
     "rules": {
-        "no-console": ["warn"]
+        "no-console": [
+            "warn"
+        ]
     }
 }

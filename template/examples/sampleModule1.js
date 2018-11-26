@@ -1,4 +1,4 @@
-export default (function module1() {
+export default (function sampleModule1() {
     const version = '0.0.1';
     function getVersion() {
         return version;

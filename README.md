@@ -12,6 +12,7 @@ This is the default JavaScript template for [create-apex-js-app][mainproject] an
 -   ESLint statically checks the source code with the `eslint:recommended` rule set
 -   CSS files that are imported into the JavaScript source files are extracted with vendor prefixes added into a separate CSS file
 -   all transformed code is minimized and shortened
+-   ability to write unit tests with [ava][ava] that run during a build
 
 The result of the build process is a JavaScript bundle file, that contains the transpiled source code with the dependencies and required polyfills, as well as a CSS file that includes the code of all imported CSS files. The bundled JavaScript file exposes your source code in one library variable to your APEX application.
 
@@ -59,14 +60,22 @@ npm run bundle-dev
 
 This will create bundle your Javascript code and CSS files as above, but without minifying and uglifying. But, for development source maps are added inline of your JS file.
 
-### Bundle on every change
+### Run tests
 
 ```bash
-npm run bundle-watch
-npm run bundle-dev-watch
+npm run test
 ```
+This will run all tests defined in the `tests` folder.
 
-The same as above, but it will keep watching your source directory for changes and rebundle your code on every change.
+### Run script every change
+
+All above scripts can also be run to watch and re-execute on every change:
+
+```bash
+npm run watch:bundle
+npm run watch:bundle-dev
+npm run watch:test
+```
 
 ### Create documentation
 
@@ -82,17 +91,18 @@ This will create the documentation from the JSDoc comments in your source code.
 npm run build
 ```
 
-This will run the production build and create the JSDoc documentation.
+This will run the tests, the production build and create the JSDoc documentation.
 
 ## Configuration
 
 You can change your build to your needs by changing the following configuration files:
 
--   [package.json](https://docs.npmjs.com/files/package.json): Root configuration file of your project. Includes the name of your app, the exposed library code, the version of your app and many more.
--   [rollup.config.js](https://rollupjs.org/guide/en): Configuration file for the bundle process of your library
--   [.eslintrc.json](https://eslint.org/docs/user-guide/configuring): Settings file for ESLint. By default the predefined [eslint:recommended](https://eslint.org/docs/rules/) rules are used for ESlint. If you want to use another set, you can change it in this configuration file. The .eslintignore file in addition includes all the files that should be ignored by ESLint
--   [.prettierrc](https://github.com/prettier/prettier): Rules for the Prettier extension in VSCode
--   [jsdoc.conf](http://usejsdoc.org/about-configuring-jsdoc.html): Configuration file for documentation creation with JSDoc
+-   [package.json][packagejson]: Root configuration file of your project. Includes the name of your app, the exposed library code, the version of your app and many more.
+-   [rollup.config.js][rollupconf]: Configuration file for the bundle process of your library
+-   [.eslintrc.json][eslintconf]: Settings file for ESLint. By default the predefined [eslint:recommended][eslintrecommend] rules are used for ESlint. If you want to use another set, you can change it in this configuration file. The .eslintignore file in addition includes all the files that should be ignored by ESLint
+-   [.prettierrc][prettierconf]: Rules for the Prettier extension in VSCode
+-   [jsdoc.conf][jsdocconf]: Configuration file for documentation creation with JSDoc
+-   [.babelrc][babelconf]
 
 ### Externals
 
@@ -127,3 +137,11 @@ Daniel Frech, 2018
 [contributing]: /CONTRIBUTING.md
 [semver]: https://semver.org/
 [mainproject]: https://github.com/dfrechdev/create-apex-js-app
+[ava]: https://github.com/avajs/ava
+[packagejson]: https://docs.npmjs.com/files/package.json
+[babelconf]: https://babeljs.io/docs/en/config-files
+[jsdocconf]: http://usejsdoc.org/about-configuring-jsdoc.html
+[prettierconf]: https://github.com/prettier/prettier
+[eslintconf]: https://eslint.org/docs/user-guide/configuring
+[rollupconf]: https://rollupjs.org/guide/en
+[eslintrecommend]: https://eslint.org/docs/rules/

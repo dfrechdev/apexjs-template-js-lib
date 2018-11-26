@@ -1,7 +1,6 @@
 import apex from 'apex';
 
-const $ = apex.jQuery;
-
+// example function using the apex library
 export function getItemLabel(elementId) {
     return apex.item(elementId).node.textContent;
 }

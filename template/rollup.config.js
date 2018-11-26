@@ -27,8 +27,8 @@ export default [
             replace({
                 include: './src/main.js',
                 values: {
-                    NPM_PACKAGE_PROJECT_NAME: process.env.npm_package_name,
-                    NPM_PACKAGE_PROJECT_VERSION: process.env.npm_package_version,
+                    NPM_PACKAGE_PROJECT_NAME: pkgJson.name,
+                    NPM_PACKAGE_PROJECT_VERSION: pkgJson.version,
                 },
             }),
             postcss({
@@ -44,16 +44,6 @@ export default [
             commonjs(),
             eslint({ exclude: ['node_modules/**', 'src/styles/**'] }),
             babel({
-                presets: [
-                    [
-                        '@babel/env',
-                        {
-                            targets: 'last 2 versions, >0.25%, not dead',
-                            useBuiltIns: 'usage',
-                        },
-                    ],
-                ],
-                exclude: 'node_modules/**',
                 babelrc: true,
             }),
             process.env.BUILD === 'production' ? uglify() : null,
