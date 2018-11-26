@@ -35,14 +35,14 @@
         "rollup-watch": "^4.3.1"
     },
     "scripts": {
-        "doc": "jsdoc -c ./jsdoc.conf -d ./dist/doc -R ./README.md",
         "test": "ava ./test/**/*.test.js",
         "watch:test": "ava ./test/**/*.test.js --watch",
         "bundle-dev": "rollup -c ./rollup.config.js --environment BUILD:dev",
         "watch:bundle-dev": "rollup -c ./rollup.config.js -w --environment BUILD:dev",
         "bundle": "rollup -c ./rollup.config.js --environment BUILD:production",
         "watch:bundle": "rollup -c ./rollup.config.js -w --environment BUILD:production",
-        "build": "ava ./test/**/*.test.js && rollup -c ./rollup.config.js --environment BUILD:production && jsdoc -c ./jsdoc.conf -d ./dist/doc -R ./README.md"
+        "doc": "jsdoc -c ./jsdoc.conf -d ./dist/doc -R ./README.md",
+        "build": "ava ./test/**/*.test.js && rollup -c ./rollup.config.js --environment BUILD:production && rollup -c ./rollup.config.js --environment BUILD:dev && jsdoc -c ./jsdoc.conf -d ./dist/doc -R ./README.md"
     },
     "repository": {
         "type": "git",

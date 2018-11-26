@@ -27,8 +27,8 @@ export default [
             replace({
                 include: './src/main.js',
                 values: {
-                    NPM_PACKAGE_PROJECT_NAME: process.env.npm_package_name,
-                    NPM_PACKAGE_PROJECT_VERSION: process.env.npm_package_version,
+                    NPM_PACKAGE_PROJECT_NAME: pkgJson.name,
+                    NPM_PACKAGE_PROJECT_VERSION: pkgJson.version,
                 },
             }),
             postcss({
