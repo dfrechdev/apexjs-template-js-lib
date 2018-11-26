@@ -6,4 +6,5 @@ branches:
     only:
         - master
 script:
-    - npx create-apex-js-app testApp -s -p -t git+https://git@github.com/dfrechdev/apexjs-template-js-lib.git
+    - npx create-apex-js-app testApp -s -t git+https://git@github.com/dfrechdev/apexjs-template-js-lib.git && cd testApp && npm run build
+
