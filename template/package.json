@@ -1,7 +1,7 @@
 {
-    "name": "",
+    "name": "test",
     "description": "",
-    "libraryCode": "",
+    "libraryCode": "test",
     "version": "1.0.0",
     "inputFile": "./src/main.js",
     "outputFormat": "iife",
@@ -20,6 +20,7 @@
         "chalk": "^2.4.1",
         "cssnano": "^4.1.5",
         "eslint": "^5.8.0",
+        "ignore-styles": "^5.0.1",
         "jsdoc": "^3.5.5",
         "less": "^3.8.1",
         "log-symbols": "^2.2.0",
@@ -34,14 +35,14 @@
         "rollup-watch": "^4.3.1"
     },
     "scripts": {
-        "doc": "jsdoc -c ./jsdoc.conf -d ./%npm_package_directories_dist%/doc -R ./README.md",
+        "doc": "jsdoc -c ./jsdoc.conf -d ./dist/doc -R ./README.md",
         "test": "ava ./test/**/*.test.js",
         "watch:test": "ava ./test/**/*.test.js --watch",
         "bundle-dev": "rollup -c ./rollup.config.js --environment BUILD:dev",
         "watch:bundle-dev": "rollup -c ./rollup.config.js -w --environment BUILD:dev",
         "bundle": "rollup -c ./rollup.config.js --environment BUILD:production",
         "watch:bundle": "rollup -c ./rollup.config.js -w --environment BUILD:production",
-        "build": "npm run test && rollup -c ./rollup.config.js --environment BUILD:production && jsdoc -c ./jsdoc.conf -d ./%npm_package_directories_dist%/doc -R ./README.md "
+        "build": "ava ./test/**/*.test.js && rollup -c ./rollup.config.js --environment BUILD:production && jsdoc -c ./jsdoc.conf -d ./dist/doc -R ./README.md"
     },
     "repository": {
         "type": "git",
@@ -50,7 +51,8 @@
     "ava": {
         "require": [
             "@babel/polyfill",
-            "@babel/register"
+            "@babel/register",
+            "ignore-styles"
         ]
     },
     "author": "",
