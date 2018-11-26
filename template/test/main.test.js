@@ -20,5 +20,5 @@ test('test es6 Array.includes()', t => {
 
 test('test ecma2017 async/await', async t => {
     const value = await setupTests.asyncAwaitTest();
-    t.is(value, 200);
+    t.is(value, 100);
 });
