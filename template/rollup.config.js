@@ -44,16 +44,6 @@ export default [
             commonjs(),
             eslint({ exclude: ['node_modules/**', 'src/styles/**'] }),
             babel({
-                presets: [
-                    [
-                        '@babel/env',
-                        {
-                            targets: 'last 2 versions, >0.25%, not dead',
-                            useBuiltIns: 'usage',
-                        },
-                    ],
-                ],
-                exclude: 'node_modules/**',
                 babelrc: true,
             }),
             process.env.BUILD === 'production' ? uglify() : null,
