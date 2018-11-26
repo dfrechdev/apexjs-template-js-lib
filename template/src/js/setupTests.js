@@ -7,7 +7,7 @@ export default (function setupTests() {
     }
     async function asyncAwaitTest() {
         return new Promise(resolve => {
-            setTimeout(() => resolve(200), 1000);
+            setTimeout(() => resolve(200), 1);
         });
     }
     return {
