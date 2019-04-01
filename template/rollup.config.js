@@ -5,7 +5,7 @@ import postcss from 'rollup-plugin-postcss';
 import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer';
 import replace from 'rollup-plugin-replace';
-import { uglify } from 'rollup-plugin-uglify';
+import { terser } from "rollup-plugin-terser";
 import { eslint } from 'rollup-plugin-eslint';
 import pkgJson from './package.json';
 
@@ -46,7 +46,7 @@ export default [
             babel({
                 babelrc: true,
             }),
-            process.env.BUILD === 'production' ? uglify() : null,
+            process.env.BUILD === 'production' ? terser() : null,
         ],
     },
 ];
