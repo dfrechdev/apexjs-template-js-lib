@@ -40,7 +40,7 @@ function setupApp(appDetails) {
                         version: answers['initial-version']
                     };
                     writeLibDetails(libDetails);
-                    resolve('done');
+                    resolve(libDetails);
                 } catch (err) {
                     reject(err);
                 }
