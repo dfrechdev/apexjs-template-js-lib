@@ -16,7 +16,7 @@
     "dependencies": {
         "chalk": "^2.4.1",
         "inquirer": "^6.2.0",
-        "semver-regex": "^2.0.0"
+        "semver-regex": "^3.1.4"
     },
     "devDependencies": {},
     "repository": {
